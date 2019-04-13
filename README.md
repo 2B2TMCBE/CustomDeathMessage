@@ -1,4 +1,4 @@
-# 2b2tpe
+# CustomDeathMessage
 This is the open source version of the custom death message plugin that is used by our server, 2b2tmcpe.org, in the plugin, you can edit every single death message from the config.yml
 # Coding Style
 [![Coding Style](https://img.shields.io/badge/Coding%20Style-Google%20Style-green.svg)](https://google.github.io/styleguide/javaguide.html)
