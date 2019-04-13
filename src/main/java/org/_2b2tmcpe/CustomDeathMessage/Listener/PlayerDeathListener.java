@@ -36,15 +36,6 @@ import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 
 
-/*
- * TODO
- * 1. Add support for config.yml #DONE
- * 2. Add all cases of death message and allow customization in config.yml #DONE
- * 3. Allow tags like <Player> <Attacker> and <WeaponName> to be used #DONE
- * 4. Clean up the code to make it look cleaner
- */
-
-
 public class PlayerDeathListener implements Listener {
 
   private Main plugin;
@@ -67,14 +58,18 @@ public class PlayerDeathListener implements Listener {
   public void onDeath(PlayerDeathEvent event) {
     String deathMessage = "";
     String playerName = event.getEntity().getName();
+    // Get the default death message
     String message = this.convertConfigTags(this.conf.getString("CUSTOM"), playerName);
+    // Get a list of damage cause
     EntityDamageEvent ev = event.getEntity().getLastDamageCause();
     DamageCause cause = event.getEntity().getPlayer().getLastDamageCause().getCause();
-    this.plugin.getLogger().debug("debug: cause=" + cause.name()); // test code
+    // This code is used for debug
+    this.plugin.getLogger().debug("debug: cause=" + cause.name());
+
     // This part is for entity attack entity
-    // Unable to put it into the this class cause it will error out for some reason
     if (ev instanceof EntityDamageByEntityEvent) {
       Entity damager = ((EntityDamageByEntityEvent) ev).getDamager();
+
       // This condition check is to prevent class cast exception caused by mob attack
       if ((damager instanceof Player) && !(cause == DamageCause.PROJECTILE)) {
         String itemName = ((Player) damager).getInventory().getItemInHand().getName();
@@ -86,8 +81,6 @@ public class PlayerDeathListener implements Listener {
       } else if (cause == DamageCause.PROJECTILE) {
         deathMessage = this.conf.getString("PROJECTILE");
         message = this.convertConfigTags(deathMessage, playerName, damager.getName());
-      } else if (cause == DamageCause.LIGHTNING) {
-        message = this.getDeathMessage(cause, playerName);
         // Mob attack
       } else if (cause == DamageCause.ENTITY_ATTACK && !(damager instanceof Player)) {
         deathMessage = this.conf.getString("MOB_ATTACK");
@@ -101,11 +94,9 @@ public class PlayerDeathListener implements Listener {
   }
 
   /**
-   * This class determine the death message of each death case, it will only return the part of the
-   * Death message that is after the name of the victim, however, this will not affect the message 
-   * of player attack another player.
+   * This method determine the death message of each death case, including the name of the victim.
    * @param cause
-   * @return the death message for different cases except ENTITY_EXPLOSION and PROJECTILE
+   * @return the death message for different cases except ENTITY_EXPLOSION, ENTITY_ATTACK, and PROJECTILE
    */
   public String getDeathMessage(DamageCause cause, String playerName) {
     String deathMessage;
@@ -176,7 +167,6 @@ public class PlayerDeathListener implements Listener {
     deathMessage.replace("<Player>", playerName);
     return deathMessage;
   }
-
 
 }
 
