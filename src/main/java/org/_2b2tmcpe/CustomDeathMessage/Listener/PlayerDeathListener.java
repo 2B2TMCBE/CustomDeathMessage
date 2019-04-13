@@ -38,11 +38,11 @@ import cn.nukkit.utils.TextFormat;
 /*
  * TODO Fix unable to convert config tags in: (Player)
  * KILL_BY_WEAPON: <Player> got killed by <Attacker> using <WeaponName>
- * MOB_ATTACK: <Player> got killed by <Attacker>
- * PROJECTILE: <Player> got shot by <Attacker>
- * ENTITY_EXPLOSION: <Player> Blew to pieces by <Attacker>
+ * MOB_ATTACK: <Player> got killed by <Attacker> 
+ * PROJECTILE: <Player> got shot by <Attacker> #DONE
+ * ENTITY_EXPLOSION: <Player> Blew to pieces by <Attacker> #DONE
  * 
- * TODO Fix unrecognized death cause in LIGHTNING
+ * TODO Fix unrecognized death cause in LIGHTNING #DONE
  */
 
 
@@ -134,9 +134,6 @@ public class PlayerDeathListener implements Listener {
         break;
       case BLOCK_EXPLOSION:
         deathMessage = this.conf.getString("BLOCK_EXPLOSION");
-        break;
-      case LIGHTNING:
-        deathMessage = this.conf.getString("LIGHTNING");
         break;
       case VOID:
         deathMessage = this.conf.getString("VOID");
