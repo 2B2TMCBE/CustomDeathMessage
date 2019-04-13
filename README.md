@@ -1,5 +1,7 @@
 # CustomDeathMessage
 This is the open source version of the custom death message plugin that is used by our server, 2b2tmcpe.org, in the plugin, you can edit every single death message from the config.yml
+# Warning
+Please do not remove any of the tags from the config.yml, I haven't added a null check, so it might error out if you remove a tag. However, you are free to move around the tags to different location of the sentences.
 # Coding Style
 [![Coding Style](https://img.shields.io/badge/Coding%20Style-Google%20Style-green.svg)](https://google.github.io/styleguide/javaguide.html)
 # API/Framework Used
