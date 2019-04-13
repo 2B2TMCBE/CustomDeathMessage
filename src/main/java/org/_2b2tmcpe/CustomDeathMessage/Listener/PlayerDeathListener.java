@@ -35,6 +35,16 @@ import cn.nukkit.event.player.PlayerDeathEvent;
 import cn.nukkit.utils.Config;
 import cn.nukkit.utils.TextFormat;
 
+/*
+ * TODO Fix unable to convert config tags in: (Player)
+ * KILL_BY_WEAPON: <Player> got killed by <Attacker> using <WeaponName>
+ * MOB_ATTACK: <Player> got killed by <Attacker>
+ * PROJECTILE: <Player> got shot by <Attacker>
+ * ENTITY_EXPLOSION: <Player> Blew to pieces by <Attacker>
+ * 
+ * TODO Fix unrecognized death cause in LIGHTNING
+ */
+
 
 public class PlayerDeathListener implements Listener {
 
@@ -82,6 +92,9 @@ public class PlayerDeathListener implements Listener {
         deathMessage = this.conf.getString("PROJECTILE");
         message = this.convertConfigTags(deathMessage, playerName, damager.getName());
         // Mob attack
+      } else if (cause == DamageCause.LIGHTNING) {
+        deathMessage = this.conf.getString("LIGHTNING");
+        message = this.convertConfigTags(deathMessage, playerName, damager.getName());
       } else if (cause == DamageCause.ENTITY_ATTACK && !(damager instanceof Player)) {
         deathMessage = this.conf.getString("MOB_ATTACK");
         message = this.convertConfigTags(deathMessage, playerName, damager.getName());
@@ -151,21 +164,24 @@ public class PlayerDeathListener implements Listener {
    */
   public String convertConfigTags(String deathMessage, String playerName, String Attacker,
       String weaponName) {
-    deathMessage.replace("<Player>", playerName);
-    deathMessage.replace("<Attacker>", Attacker);
-    deathMessage.replace("<WeaponName>", weaponName);
-    return deathMessage;
+    String newDeathMessage = "";
+    newDeathMessage = deathMessage.replace("<Player>", playerName);
+    newDeathMessage = newDeathMessage.replace("<Attacker>", Attacker);
+    newDeathMessage = newDeathMessage.replace("<WeaponName>", weaponName);
+    return newDeathMessage;
   }
 
   public String convertConfigTags(String deathMessage, String playerName, String Attacker) {
-    deathMessage.replace("<Player>", playerName);
-    deathMessage.replace("<Attacker>", Attacker);
-    return deathMessage;
+    String newDeathMessage = "";
+    newDeathMessage = deathMessage.replace("<Player>", playerName);
+    newDeathMessage = newDeathMessage.replace("<Attacker>", Attacker);
+    return newDeathMessage;
   }
 
   public String convertConfigTags(String deathMessage, String playerName) {
-    deathMessage.replace("<Player>", playerName);
-    return deathMessage;
+    String newDeathMessage = "";
+    newDeathMessage = deathMessage.replace("<Player>", playerName);
+    return newDeathMessage;
   }
 
 }
