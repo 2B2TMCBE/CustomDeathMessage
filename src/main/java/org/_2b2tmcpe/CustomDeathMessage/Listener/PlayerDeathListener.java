@@ -37,8 +37,8 @@ import cn.nukkit.utils.TextFormat;
 
 /*
  * TODO Fix unable to convert config tags in: (Player)
- * KILL_BY_WEAPON: <Player> got killed by <Attacker> using <WeaponName>
- * MOB_ATTACK: <Player> got killed by <Attacker> 
+ * KILL_BY_WEAPON: <Player> got killed by <Attacker> using <WeaponName> #DONE
+ * MOB_ATTACK: <Player> got killed by <Attacker> #DONE
  * PROJECTILE: <Player> got shot by <Attacker> #DONE
  * ENTITY_EXPLOSION: <Player> Blew to pieces by <Attacker> #DONE
  * 
