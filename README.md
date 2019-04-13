@@ -6,7 +6,7 @@ This is the open source version of the custom death message plugin that is used 
 - Nukkitx Engine [![Nukkitx](https://img.shields.io/badge/Software-Nukkitx-brightgreen.svg)](https://github.com/Nukkitx/Nukkit)
 - Raknet Networking Engine
 # Installation
-- This installation guide is for Debian linux only, windows please download the newest jar file from https://github.com/2B2TMCBE/2b2tpe/releases and then proceed to step 7.
+- This installation guide is for Debian linux only, windows please download the newest jar file from https://github.com/2B2TMCBE/CustomDeathMessage/releases and then proceed to step 7.
 
 1. require installation of Nukkitx, please go to https://www.nukkitx.com/ for instruction
 2. Download maven using this command:
