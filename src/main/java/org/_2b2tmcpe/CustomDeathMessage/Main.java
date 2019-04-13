@@ -29,17 +29,11 @@ import cn.nukkit.utils.TextFormat;
 
 public class Main extends PluginBase {
 
-  /**
-   * Constructor
-   */
-  public Main() {
-    this.getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
-  }
-
   @Override
   public void onEnable() {
     this.getLogger().info(TextFormat.GREEN + "Custom Death Message by Max Xie enabled.");
     this.saveDefaultConfig();
+    this.getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
   }
 
   @Override

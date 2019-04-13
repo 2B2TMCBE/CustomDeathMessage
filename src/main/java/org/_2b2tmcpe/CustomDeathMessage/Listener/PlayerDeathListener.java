@@ -59,7 +59,7 @@ public class PlayerDeathListener implements Listener {
     String deathMessage = "";
     String playerName = event.getEntity().getName();
     // Get the default death message
-    String message = this.convertConfigTags(this.conf.getString("CUSTOM"), playerName);
+    String message = this.convertConfigTags(String.valueOf(this.conf.get("CUSTOM")), playerName);
     // Get a list of damage cause
     EntityDamageEvent ev = event.getEntity().getLastDamageCause();
     DamageCause cause = event.getEntity().getPlayer().getLastDamageCause().getCause();
