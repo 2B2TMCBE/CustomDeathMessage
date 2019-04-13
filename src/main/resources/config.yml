@@ -1,0 +1,29 @@
+# This is the death message configuration of CustomDeathMessage
+
+# Different word within <> allow the server to show different information
+# <Player> : Name of the victim (It can be a mob, or a player)
+# <Attacker> : Name of the attacker (It can be a mob, or a player)
+# <WeaponName> : When a player is killed by another player using a weapon, you can specify whether to display the weapon name or not.
+
+# ATTENTION:
+# Please do not remove anything before each column, those are names of the death message type
+
+SUFFOCATION: <Player> Suffocated in wall
+FALL: <Player> Jumped off the roof
+FIRE: <Player> burned
+FIRE_TICK: <Player> burned
+LAVA: <Player> swam in lava
+DROWNING: <Player> drowned
+BLOCK_EXPLOSION: <Player> Blew to pieces
+ENTITY_EXPLOSION: <Player> Blew to pieces by <Attacker>
+LIGHTNING:  <Player> electrocuted
+VOID:    <Player> went over the edge
+SUICIDE: <Player> suicided
+MAGIC: <Player> cursed
+KILL_BY_WEAPON: <Player> got killed by <Attacker> using <WeaponName>
+MOB_ATTACK: <Player> got killed by <Attacker>
+PROJECTILE: <Player> got shot by <Attacker>
+
+# This will be the default death message
+CUSTOM: <Player> died without reason
+
